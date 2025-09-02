@@ -67,12 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\bootstrap-icons.css" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\js\animated-headline.js" />
+    <Content Include="Assets\js\bootstrap.bundle.min.js" />
+    <Content Include="Assets\js\click-scroll.js" />
+    <Content Include="Assets\js\custom.js" />
+    <Content Include="Assets\js\jquery.min.js" />
+    <Content Include="Assets\js\jquery.sticky.js" />
+    <Content Include="Assets\js\modernizr.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\fonts\bootstrap-icons.woff" />
+    <Content Include="Assets\fonts\bootstrap-icons.woff2" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -82,7 +94,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Folder Include="Assets\images\" />
     <Folder Include="MasterPages\" />
     <Folder Include="Pages\" />
   </ItemGroup>
