@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="base_template.master.cs" Inherits="Numismatic_CoinsNotes.MasterPages.base_template" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../Assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../Assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="../Assets/css/owl.css">
+    <link rel="stylesheet" href="../Assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header class="header-area header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <nav class="main-nav">
+                                <!-- ***** Logo Start ***** -->
+                                <a href="../Pages/home.aspx" class="logo">
+                                    <h1>Numismatic</h1>
+                                </a>
+                                <!-- ***** Logo End ***** -->
+                                <!-- ***** Menu Start ***** -->
+                                <ul class="nav">
+                                  <li><a href="../Pages/home.aspx" class="active">>Home</a></li>
+                                  <li><a href="#">All Numismatics</a></li>
+                                  <li><a href="#">My Collection</a></li>
+                                  <li><a href="#"><i class="fa fa-calendar"></i> Your Account</a></li>
+                              </ul>   
+                                <a class='menu-trigger'>
+                                    <span>Menu</span>
+                                </a>
+                                <!-- ***** Menu End ***** -->
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer>
+                <div class="container">
+                  <div class="col-lg-12">
+                    <p>Copyright © 2025 Renato Gaspar. All rights reserved. 
+                  </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <!-- Bootstrap core JavaScript -->
+        <script src="../Assets/jquery/jquery.min.js"></script>
+        <script src="../Assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../Assets/js/isotope.min.js"></script>
+        <script src="../Assets/js/owl-carousel.js"></script>
+        <script src="../Assets/js/counter.js"></script>
+        <script src="../Assets/js/custom.js"></script>
+    </form>
+</body>
+</html>

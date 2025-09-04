@@ -67,24 +67,53 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\css\bootstrap-icons.css" />
-    <Content Include="Assets\css\bootstrap.min.css" />
-    <Content Include="Assets\css\style.css" />
-    <Content Include="Assets\js\animated-headline.js" />
-    <Content Include="Assets\js\bootstrap.bundle.min.js" />
-    <Content Include="Assets\js\click-scroll.js" />
+    <Content Include="Assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\css\animate.css" />
+    <Content Include="Assets\css\flex-slider.css" />
+    <Content Include="Assets\css\fontawesome.css" />
+    <Content Include="Assets\css\owl.css" />
+    <Content Include="Assets\css\templatemo-villa-agency.css" />
+    <Content Include="Assets\images\homeWpp.png" />
+    <Content Include="Assets\jquery\jquery.js" />
+    <Content Include="Assets\jquery\jquery.min.js" />
+    <Content Include="Assets\jquery\jquery.slim.js" />
+    <Content Include="Assets\jquery\jquery.slim.min.js" />
+    <Content Include="Assets\js\counter.js" />
     <Content Include="Assets\js\custom.js" />
-    <Content Include="Assets\js\jquery.min.js" />
-    <Content Include="Assets\js\jquery.sticky.js" />
-    <Content Include="Assets\js\modernizr.js" />
+    <Content Include="Assets\js\isotope.min.js" />
+    <Content Include="Assets\js\owl-carousel.js" />
+    <Content Include="Pages\home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MasterPages\base_template.Master.cs">
+      <DependentUpon>base_template.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\base_template.Master.designer.cs">
+      <DependentUpon>base_template.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\fonts\bootstrap-icons.woff" />
-    <Content Include="Assets\fonts\bootstrap-icons.woff2" />
+    <Content Include="MasterPages\base_template.Master" />
+    <Content Include="Assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="Assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="Assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="Assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="Assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="Assets\webfonts\fa-solid-900.woff2" />
+    <Content Include="Assets\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="Assets\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Assets\jquery\jquery.min.map" />
+    <Content Include="Assets\jquery\jquery.slim.min.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -93,11 +122,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\images\" />
-    <Folder Include="MasterPages\" />
-    <Folder Include="Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
