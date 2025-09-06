@@ -83,15 +83,26 @@
     <Content Include="Assets\js\custom.js" />
     <Content Include="Assets\js\isotope.min.js" />
     <Content Include="Assets\js\owl-carousel.js" />
+    <Content Include="Pages\create_account.aspx" />
     <Content Include="Pages\home.aspx" />
+    <Content Include="Pages\login.aspx" />
+    <Content Include="Pages\your_account.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterPages\base_template.Master.cs">
       <DependentUpon>base_template.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPages\base_template.Master.designer.cs">
       <DependentUpon>base_template.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\create_account.aspx.cs">
+      <DependentUpon>create_account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\create_account.aspx.designer.cs">
+      <DependentUpon>create_account.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -99,6 +110,20 @@
     </Compile>
     <Compile Include="Pages\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\your_account.aspx.cs">
+      <DependentUpon>your_account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\your_account.aspx.designer.cs">
+      <DependentUpon>your_account.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

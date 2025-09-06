@@ -1675,20 +1675,20 @@ Contact Page Style
   padding: 15px 15px;
 }
 
-.contact-page #contact-form button {
-  background-color: #1e1e1e;
-  height: 44px;
-  border-radius: 22px;
-  padding: 0px 20px;
-  color: #fff;
-  border: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all .5s;
+.orange-button {
+    background-color: #1e1e1e !important;
+    height: 44px;
+    border-radius: 22px;
+    padding: 0px 20px;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .5s;
 }
 
-.contact-page #contact-form button:hover {
-  background-color: #f35525;
+.orange-button:hover {
+    background-color: #f35525 !important;
 }
 
 
