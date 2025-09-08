@@ -24,6 +24,15 @@ namespace Numismatic_CoinsNotes.Pages
         protected global::System.Web.UI.WebControls.TextBox tb_name;
 
         /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
         /// tb_email control.
         /// </summary>
         /// <remarks>
@@ -49,5 +58,14 @@ namespace Numismatic_CoinsNotes.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_createAccount;
+
+        /// <summary>
+        /// lbl_infos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_infos;
     }
 }
