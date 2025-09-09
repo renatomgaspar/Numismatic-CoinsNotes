@@ -42,12 +42,12 @@ namespace Numismatic_CoinsNotes.Pages
                 myCommand.Parameters.AddWithValue("@email", tb_email.Text);
                 myCommand.Parameters.AddWithValue("@password", EncryptString(tb_password.Text));
                 // Parameter de retorno
-                SqlParameter valor = new SqlParameter();
-                valor.ParameterName = "@return";
-                valor.Direction = ParameterDirection.Output;
-                valor.SqlDbType = SqlDbType.Int;
+                SqlParameter value = new SqlParameter();
+                value.ParameterName = "@return";
+                value.Direction = ParameterDirection.Output;
+                value.SqlDbType = SqlDbType.Int;
 
-                myCommand.Parameters.Add(valor);
+                myCommand.Parameters.Add(value);
 
                 // Abrir a conexão
                 myCon.Open();

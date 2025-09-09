@@ -84,7 +84,9 @@
     <Content Include="Assets\js\custom.js" />
     <Content Include="Assets\js\isotope.min.js" />
     <Content Include="Assets\js\owl-carousel.js" />
+    <Content Include="Pages\404error.aspx" />
     <Content Include="Pages\activation.aspx" />
+    <Content Include="Pages\change_password.aspx" />
     <Content Include="Pages\create_account.aspx" />
     <Content Include="Pages\home.aspx" />
     <Content Include="Pages\login.aspx" />
@@ -99,12 +101,26 @@
     <Compile Include="MasterPages\base_template.Master.designer.cs">
       <DependentUpon>base_template.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\404error.aspx.cs">
+      <DependentUpon>404error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\404error.aspx.designer.cs">
+      <DependentUpon>404error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\activation.aspx.cs">
       <DependentUpon>activation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\activation.aspx.designer.cs">
       <DependentUpon>activation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\change_password.aspx.cs">
+      <DependentUpon>change_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\change_password.aspx.designer.cs">
+      <DependentUpon>change_password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\create_account.aspx.cs">
       <DependentUpon>create_account.aspx</DependentUpon>

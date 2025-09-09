@@ -59,7 +59,7 @@ namespace Numismatic_CoinsNotes.Pages
 
         protected void btn_changePassword_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("change_password.aspx");
         }
 
         protected void btn_logout_Click(object sender, EventArgs e)

@@ -4,43 +4,50 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Security.Cryptography;
-using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Numismatic_CoinsNotes.Pages
 {
-    public partial class login : System.Web.UI.Page
+    public partial class change_password : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["userEmail"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
         }
 
-        protected void btn_login_Click(object sender, EventArgs e)
+        protected void btn_changePassword_Click(object sender, EventArgs e)
         {
-            if (tb_email.Text == "" || tb_password.Text == "")
+            if (tb_currentPassword.Text == "" || tb_newPassword.Text == "" || tb_newPasswordRepeat.Text == "")
             {
                 lbl_infos.Text = "Fill all the fields!";
+            }
+            else if (tb_newPassword.Text != tb_newPasswordRepeat.Text)
+            {
+                lbl_infos.Text = "Passwords doesnt match!";
             }
             else
             {
                 // Criar a conexão - Abrir a connectionString
                 SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
 
+                // Qual a ação - Neste caso insert
                 SqlCommand myCommand = new SqlCommand();
 
                 myCommand.Connection = myCon;
-                myCommand.CommandType = CommandType.StoredProcedure;
-                myCommand.CommandText = "login";
+                myCommand.CommandType = CommandType.StoredProcedure; // Utilizar uma stored procedure
+                myCommand.CommandText = "change_password"; // Noma da stored procedure
 
                 // O que queremos inserir/enviar
-                myCommand.Parameters.AddWithValue("@email", tb_email.Text);
-                myCommand.Parameters.AddWithValue("@password", EncryptString(tb_password.Text));
+                myCommand.Parameters.AddWithValue("@email", Session["userEmail"]);
+                myCommand.Parameters.AddWithValue("@current_password", EncryptString(tb_currentPassword.Text));
+                myCommand.Parameters.AddWithValue("@new_password", EncryptString(tb_newPassword.Text));
+
                 // Parameter de retorno
                 SqlParameter value = new SqlParameter();
                 value.ParameterName = "@return";
@@ -55,46 +62,20 @@ namespace Numismatic_CoinsNotes.Pages
                 int response = Convert.ToInt32(myCommand.Parameters["@return"].Value);
                 myCon.Close();
 
-                // 1 -> User | 4 -> Admin
                 if (response == 1)
                 {
-                    lbl_infos.Text = "Login Successful!";
-
-                    Session["userType"] = 1;
-                    Session["userEmail"] = tb_email.Text;
-
-                    ClientScript.RegisterStartupScript(
-                        this.GetType(),
-                        "Redirect",
-                        "setTimeout(function() { window.location.href = '../Pages/home.aspx'; }, 3000);", 
-                        true);
-                }
-                else if (response == 4) 
-                {
-                    lbl_infos.Text = "Login Successful!";
-
-                    Session["userType"] = 2;
-                    Session["userEmail"] = tb_email.Text;
-
-                    ClientScript.RegisterStartupScript(
-                        this.GetType(),
-                        "Redirect",
-                        "setTimeout(function() { window.location.href = '../Pages/home.aspx'; }, 3000);",
-                        true);
-                }
-                else if (response == 2)
-                {
-                    lbl_infos.Text = "Your account has been Desactivated! Contact Numismatic Support!";
-                }
-                else if (response == 3)
-                {
-                    lbl_infos.Text = "Your account is not verified! Check your email to verify it!";
+                    lbl_infos.Text = "Your password has been successfully changed!";
                 }
                 else
                 {
-                    lbl_infos.Text = "Invalid Credentials! Try again!";
+                    lbl_infos.Text = "Your current password is incorrect! Try again!";
                 }
             }
+        }
+
+        protected void btn_back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("your_account.aspx");
         }
 
         public static string EncryptString(string Message)
@@ -141,11 +122,6 @@ namespace Numismatic_CoinsNotes.Pages
             enc = enc.Replace("/", "JOJOJO");
             enc = enc.Replace("\\", "IOIOIO");
             return enc;
-        }
-
-        protected void btn_gotoCreate_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Pages/create_account.aspx");
         }
     }
 }

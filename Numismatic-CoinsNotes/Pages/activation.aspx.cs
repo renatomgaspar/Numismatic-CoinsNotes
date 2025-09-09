@@ -32,12 +32,12 @@ namespace Numismatic_CoinsNotes.Pages
             // myCommand.Parameters.AddWithValue("@campoTabela", valorAPassar);
             myCommand.Parameters.AddWithValue("@email", email_decrypt);
             // Parameter de retorno
-            SqlParameter valor = new SqlParameter();
-            valor.ParameterName = "@return";
-            valor.Direction = ParameterDirection.Output;
-            valor.SqlDbType = SqlDbType.Int;
+            SqlParameter value = new SqlParameter();
+            value.ParameterName = "@return";
+            value.Direction = ParameterDirection.Output;
+            value.SqlDbType = SqlDbType.Int;
 
-            myCommand.Parameters.Add(valor);
+            myCommand.Parameters.Add(value);
 
             // Abrir a conexão
             myCon.Open();
