@@ -55,16 +55,31 @@ namespace Numismatic_CoinsNotes.Pages
                 int response = Convert.ToInt32(myCommand.Parameters["@return"].Value);
                 myCon.Close();
 
+                // 1 -> User | 4 -> Admin
                 if (response == 1)
                 {
                     lbl_infos.Text = "Login Successful!";
 
-                    Session["checkLogin"] = true;
+                    Session["userType"] = 1;
+                    Session["userEmail"] = tb_email.Text;
 
                     ClientScript.RegisterStartupScript(
                         this.GetType(),
                         "Redirect",
                         "setTimeout(function() { window.location.href = '../Pages/home.aspx'; }, 3000);", 
+                        true);
+                }
+                else if (response == 4) 
+                {
+                    lbl_infos.Text = "Login Successful!";
+
+                    Session["userType"] = 2;
+                    Session["userEmail"] = tb_email.Text;
+
+                    ClientScript.RegisterStartupScript(
+                        this.GetType(),
+                        "Redirect",
+                        "setTimeout(function() { window.location.href = '../Pages/home.aspx'; }, 3000);",
                         true);
                 }
                 else if (response == 2)

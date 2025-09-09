@@ -23,6 +23,19 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/68bf7664bfd8a5191fb52414/1j4lucuqj';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 <body>
     <form id="form1" runat="server">
         <div>
@@ -39,8 +52,8 @@
                                 <!-- ***** Menu Start ***** -->
                                 <ul class="nav">
                                   <li><a href="../Pages/home.aspx">>Home</a></li>
-                                  <li><a href="#">All Numismatics</a></li>
-                                  <li><a href="#">My Collection</a></li>
+                                  <li><a href="#">>All Numismatics</a></li>
+                                  <li><a href="#">>My Collection</a></li>
                                   <li><a href="../Pages/your_account.aspx"><i class="fa fa-calendar"></i> Your Account</a></li>
                               </ul>   
                                 <a class='menu-trigger'>

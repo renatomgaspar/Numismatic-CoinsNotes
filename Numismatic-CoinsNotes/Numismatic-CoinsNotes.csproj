@@ -75,6 +75,7 @@
     <Content Include="Assets\css\owl.css" />
     <Content Include="Assets\css\templatemo-villa-agency.css" />
     <Content Include="Assets\images\homeWpp.png" />
+    <Content Include="Assets\images\userDefaultImage.png" />
     <Content Include="Assets\jquery\jquery.js" />
     <Content Include="Assets\jquery\jquery.min.js" />
     <Content Include="Assets\jquery\jquery.slim.js" />
