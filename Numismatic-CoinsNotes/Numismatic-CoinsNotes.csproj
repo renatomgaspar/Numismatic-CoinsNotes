@@ -86,10 +86,12 @@
     <Content Include="Assets\js\owl-carousel.js" />
     <Content Include="Pages\404error.aspx" />
     <Content Include="Pages\activation.aspx" />
+    <Content Include="Pages\recovery_password_action.aspx" />
     <Content Include="Pages\change_password.aspx" />
     <Content Include="Pages\create_account.aspx" />
     <Content Include="Pages\home.aspx" />
     <Content Include="Pages\login.aspx" />
+    <Content Include="Pages\password_recovery.aspx" />
     <Content Include="Pages\your_account.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -114,6 +116,13 @@
     </Compile>
     <Compile Include="Pages\activation.aspx.designer.cs">
       <DependentUpon>activation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\recovery_password_action.aspx.cs">
+      <DependentUpon>recovery_password_action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\recovery_password_action.aspx.designer.cs">
+      <DependentUpon>recovery_password_action.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\change_password.aspx.cs">
       <DependentUpon>change_password.aspx</DependentUpon>
@@ -142,6 +151,13 @@
     </Compile>
     <Compile Include="Pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\password_recovery.aspx.cs">
+      <DependentUpon>password_recovery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\password_recovery.aspx.designer.cs">
+      <DependentUpon>password_recovery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\your_account.aspx.cs">
       <DependentUpon>your_account.aspx</DependentUpon>

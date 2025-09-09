@@ -7,94 +7,85 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Security.Cryptography;
-using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Numismatic_CoinsNotes.Pages
 {
-    public partial class login : System.Web.UI.Page
+    public partial class password_recovery : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btn_login_Click(object sender, EventArgs e)
+        protected void btn_password_recovery_Click(object sender, EventArgs e)
         {
-            if (tb_email.Text == "" || tb_password.Text == "")
+            if (tb_email.Text == "")
             {
                 lbl_infos.Text = "Fill all the fields!";
             }
             else
             {
-                // Criar a conexão - Abrir a connectionString
                 SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
 
+                // Qual a ação - Neste caso insert
                 SqlCommand myCommand = new SqlCommand();
 
                 myCommand.Connection = myCon;
-                myCommand.CommandType = CommandType.StoredProcedure;
-                myCommand.CommandText = "login";
+                myCommand.CommandType = CommandType.StoredProcedure; // Utilizar uma stored procedure
+                myCommand.CommandText = "get_user_infos"; // Noma da stored procedure
 
                 // O que queremos inserir/enviar
-                myCommand.Parameters.AddWithValue("@email", tb_email.Text);
-                myCommand.Parameters.AddWithValue("@password", EncryptString(tb_password.Text));
-                // Parameter de retorno
-                SqlParameter value = new SqlParameter();
-                value.ParameterName = "@return";
-                value.Direction = ParameterDirection.Output;
-                value.SqlDbType = SqlDbType.Int;
-
-                myCommand.Parameters.Add(value);
+                // myCommand.Parameters.AddWithValue("@campoTabela", valorAPassar);
+                myCommand.Parameters.AddWithValue("@email", tb_email.Text); // Request.QueryString["num"] - apanhar o valor num passado por link
 
                 // Abrir a conexão
                 myCon.Open();
-                myCommand.ExecuteNonQuery(); // Executar a nossa stored procedure
-                int response = Convert.ToInt32(myCommand.Parameters["@return"].Value);
-                myCon.Close();
+                SqlDataReader dr = myCommand.ExecuteReader(); // PARA LEITURA DE INFORMAÇÃO - Vai ser guardado lá
 
-                // 1 -> User | 4 -> Admin
-                if (response == 1)
+                if (dr.Read())
                 {
-                    lbl_infos.Text = "Login Successful!";
+                    MailMessage email = new MailMessage();
+                    SmtpClient smtp = new SmtpClient();
 
-                    Session["userType"] = 1;
-                    Session["userEmail"] = tb_email.Text;
+                    try
+                    {
+                        // Base para o envio de email
+                        email.From = new MailAddress("numismaticsteammanager@gmail.com");
+                        email.To.Add(tb_email.Text);
 
-                    ClientScript.RegisterStartupScript(
-                        this.GetType(),
-                        "Redirect",
-                        "setTimeout(function() { window.location.href = '../Pages/home.aspx'; }, 3000);", 
-                        true);
-                }
-                else if (response == 4) 
-                {
-                    lbl_infos.Text = "Login Successful!";
+                        email.Subject = "Password Recovery";
+                        // 2 Maneira de Enviar em bloco de notas ou HTML
+                        // Mete o body em html
+                        email.IsBodyHtml = true;
+                        email.Body = $"<b><h1>Password Recovery!</h1></b><br>Click <a href='https://localhost:44317/Pages/recovery_password_action.aspx?email={EncryptString(tb_email.Text)}'> > here < </a>to receive your new password!";
 
-                    Session["userType"] = 2;
-                    Session["userEmail"] = tb_email.Text;
+                        // Servidor SMTP do gmail
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.Port = 587;
+                        smtp.Credentials = new NetworkCredential("numismaticsteammanager@gmail.com", "tufh faqe qclj hwei");
+                        smtp.EnableSsl = true;
+                        smtp.Send(email);
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message);
+                    }
 
-                    ClientScript.RegisterStartupScript(
-                        this.GetType(),
-                        "Redirect",
-                        "setTimeout(function() { window.location.href = '../Pages/home.aspx'; }, 3000);",
-                        true);
-                }
-                else if (response == 2)
-                {
-                    lbl_infos.Text = "Your account has been Desactivated! Contact Numismatic Support!";
-                }
-                else if (response == 3)
-                {
-                    lbl_infos.Text = "Your account is not verified! Check your email to verify it!";
+                    lbl_infos.Text = "Check your email to receive your new password";
                 }
                 else
                 {
-                    lbl_infos.Text = "Invalid Credentials! Try again!";
-                }
+                    lbl_infos.Text = "There is no account with that email!";
+                }  
             }
+        }
+
+        protected void btn_back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
         }
 
         public static string EncryptString(string Message)
@@ -141,16 +132,6 @@ namespace Numismatic_CoinsNotes.Pages
             enc = enc.Replace("/", "JOJOJO");
             enc = enc.Replace("\\", "IOIOIO");
             return enc;
-        }
-
-        protected void btn_gotoCreate_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("create_account.aspx");
-        }
-
-        protected void btn_password_recovery_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("password_recovery.aspx");
         }
     }
 }

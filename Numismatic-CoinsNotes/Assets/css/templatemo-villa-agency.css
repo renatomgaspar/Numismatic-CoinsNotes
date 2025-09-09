@@ -1707,6 +1707,22 @@ Contact Page Style
     background-color: #d41111 !important;
 }
 
+.green-button {
+    background-color: #1e1e1e !important;
+    height: 44px;
+    border-radius: 22px;
+    padding: 0px 20px;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .5s;
+}
+
+.green-button:hover {
+    background-color: #36bd16 !important;
+}
+
 
 /* 
 ---------------------------------------------
