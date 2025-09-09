@@ -36,6 +36,7 @@
                  <div class="">
                      <fieldset>
                          <asp:Button ID="btn_createAccount" class="orange-button" runat="server" Text="Create Account" OnClick="btn_createAccount_Click" />
+                         <asp:Button ID="btn_gotoLogin" class="orange-button" runat="server" Text="Login Page" OnClick="btn_gotoLogin_Click" />
                      </fieldset>
                  </div>
                  <span class="category"><asp:Label ID="lbl_infos" runat="server"></asp:Label></span>

@@ -138,5 +138,10 @@ namespace Numismatic_CoinsNotes.Pages
             enc = enc.Replace("\\", "IOIOIO");
             return enc;
         }
+
+        protected void btn_gotoLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Pages/login.aspx");
+        }
     }
 }
