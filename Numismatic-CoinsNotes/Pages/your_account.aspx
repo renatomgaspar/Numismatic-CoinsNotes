@@ -17,7 +17,7 @@
             <div id="contact-form">
                 <div class="">
                     <fieldset>
-                        <asp:Button ID="btn_adminPage" class="orange-button" runat="server" Text="Admin Page" Visible="False" />
+                        <asp:Button ID="btn_adminPage" class="orange-button" runat="server" Text="Admin Page" Visible="False" OnClick="btn_adminPage_Click" />
                     </fieldset>
                 </div>
                 <div class="">

@@ -76,6 +76,7 @@
     <Content Include="Assets\css\templatemo-villa-agency.css" />
     <Content Include="Assets\images\homeWpp.png" />
     <Content Include="Assets\images\userDefaultImage.png" />
+    <Content Include="Assets\images\wallpaperstatistics.jpg" />
     <Content Include="Assets\jquery\jquery.js" />
     <Content Include="Assets\jquery\jquery.min.js" />
     <Content Include="Assets\jquery\jquery.slim.js" />
@@ -84,14 +85,19 @@
     <Content Include="Assets\js\custom.js" />
     <Content Include="Assets\js\isotope.min.js" />
     <Content Include="Assets\js\owl-carousel.js" />
+    <Content Include="Assets\images\wallpaperusers.jpg" />
     <Content Include="Pages\404error.aspx" />
     <Content Include="Pages\activation.aspx" />
+    <Content Include="Pages\admin.aspx" />
+    <Content Include="Pages\manage_cashtype.aspx" />
+    <Content Include="Pages\new_cashtype.aspx" />
     <Content Include="Pages\recovery_password_action.aspx" />
     <Content Include="Pages\change_password.aspx" />
     <Content Include="Pages\create_account.aspx" />
     <Content Include="Pages\home.aspx" />
     <Content Include="Pages\login.aspx" />
     <Content Include="Pages\password_recovery.aspx" />
+    <Content Include="Pages\update_cashtype.aspx" />
     <Content Include="Pages\your_account.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -116,6 +122,26 @@
     </Compile>
     <Compile Include="Pages\activation.aspx.designer.cs">
       <DependentUpon>activation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\manage_cashtype.aspx.cs">
+      <DependentUpon>manage_cashtype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\manage_cashtype.aspx.designer.cs">
+      <DependentUpon>manage_cashtype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\new_cashtype.aspx.cs">
+      <DependentUpon>new_cashtype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\new_cashtype.aspx.designer.cs">
+      <DependentUpon>new_cashtype.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\recovery_password_action.aspx.cs">
       <DependentUpon>recovery_password_action.aspx</DependentUpon>
@@ -158,6 +184,13 @@
     </Compile>
     <Compile Include="Pages\password_recovery.aspx.designer.cs">
       <DependentUpon>password_recovery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\update_cashtype.aspx.cs">
+      <DependentUpon>update_cashtype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\update_cashtype.aspx.designer.cs">
+      <DependentUpon>update_cashtype.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\your_account.aspx.cs">
       <DependentUpon>your_account.aspx</DependentUpon>

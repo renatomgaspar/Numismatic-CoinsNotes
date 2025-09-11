@@ -63,11 +63,7 @@ namespace Numismatic_CoinsNotes.Pages
                     Session["userType"] = 1;
                     Session["userEmail"] = tb_email.Text;
 
-                    ClientScript.RegisterStartupScript(
-                        this.GetType(),
-                        "Redirect",
-                        "setTimeout(function() { window.location.href = '../Pages/home.aspx'; }, 3000);", 
-                        true);
+                    Response.Redirect("your_account.aspx");
                 }
                 else if (response == 4) 
                 {
@@ -76,11 +72,7 @@ namespace Numismatic_CoinsNotes.Pages
                     Session["userType"] = 2;
                     Session["userEmail"] = tb_email.Text;
 
-                    ClientScript.RegisterStartupScript(
-                        this.GetType(),
-                        "Redirect",
-                        "setTimeout(function() { window.location.href = '../Pages/home.aspx'; }, 3000);",
-                        true);
+                    Response.Redirect("your_account.aspx"); ;
                 }
                 else if (response == 2)
                 {

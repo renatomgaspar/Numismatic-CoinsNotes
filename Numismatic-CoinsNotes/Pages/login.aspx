@@ -29,8 +29,8 @@
                  </div>
                  <div class="">
                      <fieldset>
-                         <asp:Button ID="btn_password_recovery" class="green-button" runat="server" Text="Password Recovery" OnClick="btn_password_recovery_Click" />
                          <asp:Button ID="btn_login" class="orange-button" runat="server" Text="Login" OnClick="btn_login_Click" />
+                         <asp:Button ID="btn_password_recovery" class="green-button" runat="server" Text="Password Recovery" OnClick="btn_password_recovery_Click" />
                          <asp:Button ID="btn_gotoCreate" class="orange-button" runat="server" Text="Create Account Page" OnClick="btn_gotoCreate_Click" />
                      </fieldset>
                  </div>

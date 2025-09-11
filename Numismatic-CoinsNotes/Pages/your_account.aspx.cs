@@ -69,5 +69,10 @@ namespace Numismatic_CoinsNotes.Pages
 
             Response.Redirect("home.aspx");
         }
+
+        protected void btn_adminPage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("admin.aspx");
+        }
     }
 }

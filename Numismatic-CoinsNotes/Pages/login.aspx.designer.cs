@@ -42,15 +42,6 @@ namespace Numismatic_CoinsNotes.Pages
         protected global::System.Web.UI.WebControls.TextBox tb_password;
 
         /// <summary>
-        /// btn_password_recovery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_password_recovery;
-
-        /// <summary>
         /// btn_login control.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,15 @@ namespace Numismatic_CoinsNotes.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_login;
+
+        /// <summary>
+        /// btn_password_recovery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_password_recovery;
 
         /// <summary>
         /// btn_gotoCreate control.
