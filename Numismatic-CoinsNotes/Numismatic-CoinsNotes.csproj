@@ -91,6 +91,7 @@
     <Content Include="Pages\admin.aspx" />
     <Content Include="Pages\manage_cashtype.aspx" />
     <Content Include="Pages\new_cashtype.aspx" />
+    <Content Include="Pages\numismatics_list.aspx" />
     <Content Include="Pages\recovery_password_action.aspx" />
     <Content Include="Pages\change_password.aspx" />
     <Content Include="Pages\create_account.aspx" />
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="Pages\new_cashtype.aspx.designer.cs">
       <DependentUpon>new_cashtype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\numismatics_list.aspx.cs">
+      <DependentUpon>numismatics_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\numismatics_list.aspx.designer.cs">
+      <DependentUpon>numismatics_list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\recovery_password_action.aspx.cs">
       <DependentUpon>recovery_password_action.aspx</DependentUpon>

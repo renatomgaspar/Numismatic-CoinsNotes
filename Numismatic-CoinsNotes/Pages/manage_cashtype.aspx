@@ -42,7 +42,7 @@
                         CommandName="DeleteItem"
                         CommandArgument='<%# Eval("id") %>'
                         CssClass="btn btn-danger mt-2" 
-                         OnClientClick="return confirm('Are you sure?');" />
+                        OnClientClick="return confirm('Are you sure?');" />
                 </div>
             </div>
 

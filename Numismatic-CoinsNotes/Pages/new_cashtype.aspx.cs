@@ -60,7 +60,7 @@ namespace Numismatic_CoinsNotes.Pages
                 }
                 else
                 {
-                    lbl_infos.Text = "There is already a Numismatic with that Name!"; ;
+                    lbl_infos.Text = "There is already a Cash Type with that Name!"; ;
                 }
             }
         }
