@@ -37,35 +37,32 @@ namespace Numismatic_CoinsNotes.Pages
             {
                 int id = Convert.ToInt32(e.CommandArgument);
 
-                if (id != null)
-                {
-                    // Criar a conexão - Abrir a connectionString
-                    SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
+                // Criar a conexão - Abrir a connectionString
+                SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
 
-                    SqlCommand myCommand = new SqlCommand();
+                SqlCommand myCommand = new SqlCommand();
 
-                    myCommand.Connection = myCon;
-                    myCommand.CommandType = CommandType.StoredProcedure;
-                    myCommand.CommandText = "delete_cashtype";
+                myCommand.Connection = myCon;
+                myCommand.CommandType = CommandType.StoredProcedure;
+                myCommand.CommandText = "delete_cashtype";
 
-                    // O que queremos inserir/enviar
-                    myCommand.Parameters.AddWithValue("@id", id);
-                    // Parameter de retorno
-                    SqlParameter value = new SqlParameter();
-                    value.ParameterName = "@return";
-                    value.Direction = ParameterDirection.Output;
-                    value.SqlDbType = SqlDbType.Int;
+                // O que queremos inserir/enviar
+                myCommand.Parameters.AddWithValue("@id", id);
+                // Parameter de retorno
+                SqlParameter value = new SqlParameter();
+                value.ParameterName = "@return";
+                value.Direction = ParameterDirection.Output;
+                value.SqlDbType = SqlDbType.Int;
 
-                    myCommand.Parameters.Add(value);
+                myCommand.Parameters.Add(value);
 
-                    // Abrir a conexão
-                    myCon.Open();
-                    myCommand.ExecuteNonQuery(); // Executar a nossa stored procedure
-                    int response = Convert.ToInt32(myCommand.Parameters["@return"].Value);
-                    myCon.Close();
+                // Abrir a conexão
+                myCon.Open();
+                myCommand.ExecuteNonQuery(); // Executar a nossa stored procedure
+                int response = Convert.ToInt32(myCommand.Parameters["@return"].Value);
+                myCon.Close();
 
-                    ShowCashTypes();
-                }
+                ShowCashTypes();
             }
 
             if (e.CommandName == "UpdateItem")

@@ -53,7 +53,7 @@
                                 <ul class="nav">
                                   <li><a href="../Pages/home.aspx">>Home</a></li>
                                   <li><a href="../Pages/numismatics_list.aspx">>All Numismatics</a></li>
-                                  <li><a href="#">>My Collection</a></li>
+                                  <li><a href="../Pages/collection_list.aspx">>My Collection</a></li>
                                   <li><a href="../Pages/your_account.aspx"><i class="fa fa-calendar"></i> Your Account</a></li>
                               </ul>   
                                 <a class='menu-trigger'>

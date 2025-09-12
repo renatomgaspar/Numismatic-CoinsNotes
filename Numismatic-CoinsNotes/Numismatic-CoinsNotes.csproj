@@ -89,6 +89,7 @@
     <Content Include="Pages\404error.aspx" />
     <Content Include="Pages\activation.aspx" />
     <Content Include="Pages\admin.aspx" />
+    <Content Include="Pages\collection_list.aspx" />
     <Content Include="Pages\manage_cashtype.aspx" />
     <Content Include="Pages\new_cashtype.aspx" />
     <Content Include="Pages\numismatics_list.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="Pages\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\collection_list.aspx.cs">
+      <DependentUpon>collection_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\collection_list.aspx.designer.cs">
+      <DependentUpon>collection_list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\manage_cashtype.aspx.cs">
       <DependentUpon>manage_cashtype.aspx</DependentUpon>

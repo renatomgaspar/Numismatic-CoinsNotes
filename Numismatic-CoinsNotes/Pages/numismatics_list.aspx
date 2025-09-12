@@ -54,7 +54,7 @@
                         <span class="category"><%# Eval("Condition") %></span>
                         <h6>€<%# Eval("Currentvalue", "{0:N2}") %></h6>
                         <h4>
-                            <a href="property-details.html"><%# Eval("Title") %></a>
+                            <a href="#"><%# Eval("Title") %></a>
                         </h4>
                         <ul>
                             <li><b>Description:</b> <%# Eval("Description") %></li>

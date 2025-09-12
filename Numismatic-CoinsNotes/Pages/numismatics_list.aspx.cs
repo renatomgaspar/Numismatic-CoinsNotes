@@ -55,7 +55,7 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Imprintvalue = Convert.ToSingle(dr["imprintValue"]);
                 c.Currentvalue = Convert.ToSingle(dr["currentValue"]);
 
-                numismatics_list_class.Add(c); // usa a variável da classe, não cria nova
+                numismatics_list_class.Add(c);
             }
 
             myCon.Close();
