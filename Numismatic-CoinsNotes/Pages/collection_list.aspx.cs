@@ -27,6 +27,8 @@ namespace Numismatic_CoinsNotes.Pages
             public float Imprintvalue { get; set; }
 
             public float Currentvalue { get; set; }
+
+            public bool Active { get; set; }
         }
 
         List<Favourite> your_collection_list = new List<Favourite>();
@@ -40,6 +42,12 @@ namespace Numismatic_CoinsNotes.Pages
             else
             {
                 ShowFavourites();
+
+                if (!IsPostBack)
+                {
+                    Repeater1.DataSource = your_collection_list;
+                    Repeater1.DataBind();
+                }
             }
         }
 
@@ -47,7 +55,8 @@ namespace Numismatic_CoinsNotes.Pages
         {
             if (e.CommandName == "DeleteItem")
             {
-                int id = Convert.ToInt32(e.CommandArgument);
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                Response.Write(id);
 
                 // Criar a conexão - Abrir a connectionString
                 SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
@@ -83,6 +92,7 @@ namespace Numismatic_CoinsNotes.Pages
                 }
 
                 ShowFavourites();
+                ApplyFilters();
             }
         }
 
@@ -125,14 +135,12 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Condition = dr["condition"].ToString();
                 c.Imprintvalue = Convert.ToSingle(dr["imprintValue"]);
                 c.Currentvalue = Convert.ToSingle(dr["currentValue"]);
+                c.Active = (bool)dr["active"];
 
                 your_collection_list.Add(c);
             }
 
             myCon.Close();
-
-            Repeater1.DataSource = your_collection_list;
-            Repeater1.DataBind();
         }
 
         protected void ApplyFilters()

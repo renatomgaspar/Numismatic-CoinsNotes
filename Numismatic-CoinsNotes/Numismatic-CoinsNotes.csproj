@@ -91,7 +91,9 @@
     <Content Include="Pages\admin.aspx" />
     <Content Include="Pages\collection_list.aspx" />
     <Content Include="Pages\manage_cashtype.aspx" />
+    <Content Include="Pages\manage_numismatics.aspx" />
     <Content Include="Pages\new_cashtype.aspx" />
+    <Content Include="Pages\new_numismatic.aspx" />
     <Content Include="Pages\numismatics_list.aspx" />
     <Content Include="Pages\recovery_password_action.aspx" />
     <Content Include="Pages\change_password.aspx" />
@@ -145,12 +147,26 @@
     <Compile Include="Pages\manage_cashtype.aspx.designer.cs">
       <DependentUpon>manage_cashtype.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\manage_numismatics.aspx.cs">
+      <DependentUpon>manage_numismatics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\manage_numismatics.aspx.designer.cs">
+      <DependentUpon>manage_numismatics.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\new_cashtype.aspx.cs">
       <DependentUpon>new_cashtype.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\new_cashtype.aspx.designer.cs">
       <DependentUpon>new_cashtype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\new_numismatic.aspx.cs">
+      <DependentUpon>new_numismatic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\new_numismatic.aspx.designer.cs">
+      <DependentUpon>new_numismatic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\numismatics_list.aspx.cs">
       <DependentUpon>numismatics_list.aspx</DependentUpon>

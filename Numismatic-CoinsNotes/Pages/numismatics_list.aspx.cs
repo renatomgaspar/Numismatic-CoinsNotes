@@ -60,8 +60,11 @@ namespace Numismatic_CoinsNotes.Pages
 
             myCon.Close();
 
-            Repeater1.DataSource = numismatics_list_class;
-            Repeater1.DataBind();
+            if (!IsPostBack)
+            {
+                Repeater1.DataSource = numismatics_list_class;
+                Repeater1.DataBind();
+            }
         }
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -74,7 +77,7 @@ namespace Numismatic_CoinsNotes.Pages
                 }
                 else
                 {
-                    int id = Convert.ToInt32(e.CommandArgument);
+                    int id = Convert.ToInt32(e.CommandArgument.ToString());
 
                     // Criar a conexão - Abrir a connectionString
                     SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
@@ -107,6 +110,7 @@ namespace Numismatic_CoinsNotes.Pages
                     {
                         string message = "Added to Favorites!";
                         string script = $"<script type='text/javascript'>alert('{message}');</script>";
+                        ApplyFilters();
 
                         ClientScript.RegisterStartupScript(this.GetType(), "alert", script);
                     }

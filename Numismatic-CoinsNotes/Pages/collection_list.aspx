@@ -38,7 +38,7 @@
                 ConnectionString="<%$ ConnectionStrings:connectionString %>" 
                 SelectCommand="SELECT [id], [type] FROM [Cashtype]">
             </asp:SqlDataSource>
-            <asp:Button ID="btn_clearfilters" runat="server" Text="Clear Filters" class="orange-button" OnClick="btn_clearfilters_Click" />
+            <asp:Button ID="btn_clearfilters" runat="server" Text="Clear Filters" class="orange-button mb-3" OnClick="btn_clearfilters_Click" />
 
         </div>
     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">

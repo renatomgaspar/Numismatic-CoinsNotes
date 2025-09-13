@@ -1,13 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/base_template.Master" AutoEventWireup="true" CodeBehind="numismatics_list.aspx.cs" Inherits="Numismatic_CoinsNotes.Pages.numismatics_list" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/base_template.Master" AutoEventWireup="true" CodeBehind="manage_numismatics.aspx.cs" Inherits="Numismatic_CoinsNotes.Pages.manage_numismatics" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="page-heading header-text">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h3>All of Numismatics!</h3>
+              <h3>Manage Numismatics!</h3>
             </div>
           </div>
         </div>
@@ -15,7 +14,11 @@
 
     <div class="properties section">
         <div class="row">
+            
             <div class="filters" style="margin-left: 25px">
+                <div class="mt-3" style="justify-items: center">
+                    <asp:Button ID="btn_new_numismatic" runat="server" Text="New Numismatic" class="orange-button" OnClick="btn_new_numismatic_Click" />
+                </div>
                 Price:  
                 <asp:DropDownList ID="ddl_price" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_price_SelectedIndexChanged">
                     <asp:ListItem Value="">None</asp:ListItem>
@@ -62,10 +65,16 @@
                             <li><b>Current Value:</b> <%# Eval("Currentvalue", "{0:N2}") %></li>
                         </ul>
                         <div>
-                            <asp:LinkButton ID="btn_saveToFavourite" runat="server" Text="Add to Favourite"
-                                CommandName="SaveToFavourite"
-                                CommandArgument='<%# Eval("Id") %>'
-                                CssClass="btn btn-success mt-2" />
+                            <asp:LinkButton ID="btnUpdate" runat="server"
+                                Text="Update"
+                                CommandName="UpdateItem"
+                                CommandArgument='<%# Eval("id") %>'
+                                CssClass="btn btn-warning mt-2" />
+                            <asp:LinkButton ID="btnDelete" runat="server" Text="Delete"
+                                CommandName="DeleteItem"
+                                CommandArgument='<%# Eval("id") %>'
+                                CssClass="btn btn-danger mt-2" 
+                                OnClientClick="return confirm('Are you sure?');" />
                         </div>
                     </div>
                 </div>

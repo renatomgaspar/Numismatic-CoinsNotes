@@ -56,11 +56,11 @@ namespace Numismatic_CoinsNotes.Pages
                 // 1 -> User | 4 -> Admin
                 if (response == 1)
                 {
-                    lbl_infos.Text = "Cash Type Created!";;
+                    lbl_infos.Text = "Cash Type Created!";
                 }
                 else
                 {
-                    lbl_infos.Text = "There is already a Cash Type with that Name!"; ;
+                    lbl_infos.Text = "There is already a Cash Type with that Name!";
                 }
             }
         }
