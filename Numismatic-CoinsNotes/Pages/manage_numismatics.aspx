@@ -50,9 +50,9 @@
             <ItemTemplate>
                 <div class="col-lg-3 col-md-6">
                     <div class="item">
-                        <a href="#">
-                            <asp:Image ID="Image1" runat="server" CssClass="img-fluid" />
-                        </a>
+                        <div style="text-align: center">
+                            <asp:Image ID="Image1" runat="server" CssClass="img-fluid" ImageUrl='<%# Bind("Image") %>' Width="230" Height="200"/>
+                        </div>
                         <span class="category"><%# Eval("Type") %></span>
                         <span class="category"><%# Eval("Condition") %></span>
                         <h6>€<%# Eval("Currentvalue", "{0:N2}") %></h6>
@@ -74,7 +74,16 @@
                                 CommandName="DeleteItem"
                                 CommandArgument='<%# Eval("id") %>'
                                 CssClass="btn btn-danger mt-2" 
-                                OnClientClick="return confirm('Are you sure?');" />
+                                OnClientClick="return confirm('Are you sure?');"
+                                Visible='<%# Convert.ToBoolean(Eval("Active")) %>' />
+                            <asp:LinkButton ID="btn_active" runat="server" Text="Active"
+                                CommandName="ActiveItem"
+                                CommandArgument='<%# Eval("id") %>'
+                                CssClass="btn btn-success mt-2" 
+                                OnClientClick='return confirm("Are you sure?");'
+                                Visible='<%# !Convert.ToBoolean(Eval("Active")) %>' />
+
+                            
                         </div>
                     </div>
                 </div>

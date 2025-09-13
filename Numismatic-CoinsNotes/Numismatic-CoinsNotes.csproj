@@ -74,7 +74,9 @@
     <Content Include="Assets\css\fontawesome.css" />
     <Content Include="Assets\css\owl.css" />
     <Content Include="Assets\css\templatemo-villa-agency.css" />
+    <Content Include="Assets\images\eliminated.jpg" />
     <Content Include="Assets\images\homeWpp.png" />
+    <Content Include="Assets\images\noimage.png" />
     <Content Include="Assets\images\userDefaultImage.png" />
     <Content Include="Assets\images\wallpaperstatistics.jpg" />
     <Content Include="Assets\jquery\jquery.js" />

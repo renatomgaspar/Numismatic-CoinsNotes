@@ -29,6 +29,8 @@ namespace Numismatic_CoinsNotes.Pages
             public float Currentvalue { get; set; }
 
             public bool Active { get; set; }
+
+            public string Image { get; set; }
         }
 
         List<Favourite> your_collection_list = new List<Favourite>();
@@ -136,6 +138,22 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Imprintvalue = Convert.ToSingle(dr["imprintValue"]);
                 c.Currentvalue = Convert.ToSingle(dr["currentValue"]);
                 c.Active = (bool)dr["active"];
+
+                if (c.Active == false)
+                {
+                    c.Image = "../Assets/images/eliminated.jpg";
+                }
+                else
+                {
+                    if (dr["ctImage"].ToString() != "" && (byte[])dr["image"] != null)
+                    {
+                        c.Image = "data:" + dr["ctImage"].ToString() + ";base64," + Convert.ToBase64String((byte[])dr["image"]);
+                    }
+                    else
+                    {
+                        c.Image = "../Assets/images/noimage.png";
+                    }
+                }
 
                 your_collection_list.Add(c);
             }

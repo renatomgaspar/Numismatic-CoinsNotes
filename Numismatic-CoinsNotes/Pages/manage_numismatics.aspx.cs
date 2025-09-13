@@ -30,6 +30,8 @@ namespace Numismatic_CoinsNotes.Pages
             public float Currentvalue { get; set; }
 
             public bool Active { get; set; }
+
+            public string Image { get; set; }
         }
 
         List<Cash> numismatics_list_class = new List<Cash>();
@@ -91,6 +93,34 @@ namespace Numismatic_CoinsNotes.Pages
                 // Redireciona
                 Response.Redirect("update_cashtype.aspx");
             }
+
+            if (e.CommandName == "ActiveItem")
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+
+                string query = "UPDATE Cash SET [active] = 1 WHERE id = @id";
+
+                // Criar conexão
+                SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
+                SqlCommand myCommand = new SqlCommand(query, myCon);
+
+                // Adicionar parâmetros
+                myCommand.Parameters.AddWithValue("@id", id);
+
+                myCon.Open();
+
+                myCommand.ExecuteNonQuery();
+
+                myCon.Close();
+
+                string message = "Numismatic Actived Successfully!";
+                string script = $"<script type='text/javascript'>alert('{message}');</script>";
+
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", script);
+
+                ShowNumismatics();
+                ApplyFilters();
+            }
         }
 
         protected void ddl_price_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,6 +175,8 @@ namespace Numismatic_CoinsNotes.Pages
             myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.CommandText = "get_numismatics";
 
+            myCommand.Parameters.AddWithValue("@userType", Session["userType"]);
+
             myCon.Open();
             SqlDataReader dr = myCommand.ExecuteReader();
 
@@ -159,6 +191,22 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Imprintvalue = Convert.ToSingle(dr["imprintValue"]);
                 c.Currentvalue = Convert.ToSingle(dr["currentValue"]);
                 c.Active = (bool)dr["active"];
+
+                if (c.Active == false)
+                {
+                    c.Image = "../Assets/images/eliminated.jpg";
+                }
+                else
+                {
+                    if (dr["ctImage"].ToString() != "" && (byte[])dr["image"] != null)
+                    {
+                        c.Image = "data:" + dr["ctImage"].ToString() + ";base64," + Convert.ToBase64String((byte[])dr["image"]);
+                    }
+                    else
+                    {
+                        c.Image = "../Assets/images/noimage.png";
+                    }
+                }
 
                 numismatics_list_class.Add(c);
             }

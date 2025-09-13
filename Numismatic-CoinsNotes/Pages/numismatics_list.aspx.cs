@@ -28,6 +28,8 @@ namespace Numismatic_CoinsNotes.Pages
             public float Imprintvalue { get; set; }
 
             public float Currentvalue { get; set; }
+
+            public string Image { get; set; }
         }
 
         List<Cash> numismatics_list_class = new List<Cash>();
@@ -40,6 +42,8 @@ namespace Numismatic_CoinsNotes.Pages
             myCommand.Connection = myCon;
             myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.CommandText = "get_numismatics";
+
+            myCommand.Parameters.AddWithValue("@userType", 0);
 
             myCon.Open();
             SqlDataReader dr = myCommand.ExecuteReader();
@@ -55,7 +59,16 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Imprintvalue = Convert.ToSingle(dr["imprintValue"]);
                 c.Currentvalue = Convert.ToSingle(dr["currentValue"]);
 
-                numismatics_list_class.Add(c);
+                if (dr["ctImage"].ToString() != "" && (byte[])dr["image"] != null)
+                {
+                    c.Image = "data:" + dr["ctImage"].ToString() + ";base64," + Convert.ToBase64String((byte[])dr["image"]);
+                }
+                else
+                {
+                    c.Image = "../Assets/images/noimage.png";
+                }
+
+                    numismatics_list_class.Add(c);
             }
 
             myCon.Close();
