@@ -42,24 +42,21 @@ namespace Numismatic_CoinsNotes.Pages
             {
                 Response.Redirect("login.aspx");
             }
-            else
+
+            if (!IsPostBack)
             {
                 ShowNumismatics();
-
-                if (!IsPostBack)
-                {
-                    Repeater1.DataSource = numismatics_list_class;
-                    Repeater1.DataBind();
-                }
+                Repeater1.DataSource = numismatics_list_class.OrderByDescending(n => n.Active);
+                Repeater1.DataBind();
             }
         }
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            int id = Convert.ToInt32(e.CommandArgument);
+
             if (e.CommandName == "DeleteItem")
             {
-                int id = Convert.ToInt32(e.CommandArgument);
-
                 string query = "UPDATE Cash SET [active] = 0 WHERE id = @id";
 
                 // Criar conexão
@@ -86,18 +83,14 @@ namespace Numismatic_CoinsNotes.Pages
 
             if (e.CommandName == "UpdateItem")
             {
-                int id = Convert.ToInt32(e.CommandArgument);
-
-                Session["cashtypeToUpdate"] = id;
+                Session["cashToUpdate"] = id;
 
                 // Redireciona
-                Response.Redirect("update_cashtype.aspx");
+                Response.Redirect("update_numismatic.aspx");
             }
 
             if (e.CommandName == "ActiveItem")
             {
-                int id = Convert.ToInt32(e.CommandArgument);
-
                 string query = "UPDATE Cash SET [active] = 1 WHERE id = @id";
 
                 // Criar conexão
@@ -151,7 +144,7 @@ namespace Numismatic_CoinsNotes.Pages
                 numismatics_list_class_filter = numismatics_list_class_filter.OrderByDescending(c => c.Currentvalue).ToList();
             }
 
-            Repeater1.DataSource = numismatics_list_class_filter;
+            Repeater1.DataSource = numismatics_list_class_filter.OrderByDescending(n => n.Active);
             Repeater1.DataBind();
         }
 
@@ -160,7 +153,7 @@ namespace Numismatic_CoinsNotes.Pages
             ddl_cashtype.SelectedIndex = 0;
             ddl_price.SelectedIndex = 0;
 
-            Repeater1.DataSource = numismatics_list_class;
+            Repeater1.DataSource = numismatics_list_class.OrderByDescending(n => n.Active);
             Repeater1.DataBind();
         }
 
@@ -218,6 +211,5 @@ namespace Numismatic_CoinsNotes.Pages
         {
             Response.Redirect("new_numismatic.aspx");
         }
-        
     }
 }

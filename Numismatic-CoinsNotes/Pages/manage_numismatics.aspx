@@ -49,10 +49,8 @@
             <HeaderTemplate></HeaderTemplate>
             <ItemTemplate>
                 <div class="col-lg-3 col-md-6">
+                    <!-- TODO: LEITURA IMAGEM SEM CRASHAR OS BOTÕES -->
                     <div class="item">
-                        <div style="text-align: center">
-                            <asp:Image ID="Image1" runat="server" CssClass="img-fluid" ImageUrl='<%# Bind("Image") %>' Width="230" Height="200"/>
-                        </div>
                         <span class="category"><%# Eval("Type") %></span>
                         <span class="category"><%# Eval("Condition") %></span>
                         <h6>€<%# Eval("Currentvalue", "{0:N2}") %></h6>

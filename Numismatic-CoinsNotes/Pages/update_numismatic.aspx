@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/base_template.Master" AutoEventWireup="true" CodeBehind="new_numismatic.aspx.cs" Inherits="Numismatic_CoinsNotes.Pages.new_numismatic" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/base_template.Master" AutoEventWireup="true" CodeBehind="update_numismatic.aspx.cs" Inherits="Numismatic_CoinsNotes.Pages.update_numismatic" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -6,7 +6,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h3>New Numismatic!</h3>
+              <h3>Update Numismatic!</h3>
             </div>
           </div>
         </div>
@@ -15,6 +15,11 @@
     <div class="contact-page section">
         <div class="container">
             <div id="contact-form">
+                <div class="" style="text-align: center">
+                    <fieldset>
+                        <asp:Image ID="Image1" runat="server" CssClass="img-fluid" Width="230" Height="200"/>
+                    </fieldset>
+                </div>
                 <div class="">
                     <fieldset>
                         <label for="title">Title</label>
@@ -59,9 +64,18 @@
                         <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" />
                     </fieldset>
                 </div>
+                <div class="">
+                    <fieldset>
+                        <label for="active">Active  </label>
+                        <asp:DropDownList ID="ddl_active" runat="server">
+                            <asp:ListItem Text="Active" Value="True"></asp:ListItem>
+                            <asp:ListItem Text="Inactive" Value="False"></asp:ListItem>
+                        </asp:DropDownList>
+                    </fieldset>
+                </div>
                  <div class="">
                      <fieldset>
-                         <asp:Button ID="btn_createNumismatic" class="orange-button" runat="server" Text="Create Numismatic" OnClick="btn_createNumismatic_Click" />
+                         <asp:Button ID="btn_updateNumismatic" class="orange-button" runat="server" Text="Update Numismatic" OnClick="btn_updateNumismatic_Click" />
                          <asp:Button ID="btn_gotoBack" class="orange-button" runat="server" Text="Go Back" OnClick="btn_gotoBack_Click" />
                      </fieldset>
                  </div>

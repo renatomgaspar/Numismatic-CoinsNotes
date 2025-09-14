@@ -104,6 +104,7 @@
     <Content Include="Pages\login.aspx" />
     <Content Include="Pages\password_recovery.aspx" />
     <Content Include="Pages\update_cashtype.aspx" />
+    <Content Include="Pages\update_numismatic.aspx" />
     <Content Include="Pages\your_account.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -225,6 +226,13 @@
     </Compile>
     <Compile Include="Pages\update_cashtype.aspx.designer.cs">
       <DependentUpon>update_cashtype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\update_numismatic.aspx.cs">
+      <DependentUpon>update_numismatic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\update_numismatic.aspx.designer.cs">
+      <DependentUpon>update_numismatic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\your_account.aspx.cs">
       <DependentUpon>your_account.aspx</DependentUpon>
