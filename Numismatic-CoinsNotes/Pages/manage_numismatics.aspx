@@ -55,7 +55,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="item">
                         <div style="text-align: center">
-                            <asp:Image ID="Image1" runat="server" CssClass="img-fluid" ImageUrl='<%# "../Helpers/ImageHandler.ashx?id=" + Eval("Id") %>' Width="230" Height="200"/>
+                            <asp:Image ID="Image1" runat="server" CssClass="img-fluid" ImageUrl='<%# "../Helpers/ImageHandler.ashx?id=" + Eval("Id")  + "&page=1"%>' Width="230" Height="200"/>
                         </div>
                         <span class="category"><%# Eval("Type") %></span>
                         <span class="category"><%# Eval("Condition") %></span>

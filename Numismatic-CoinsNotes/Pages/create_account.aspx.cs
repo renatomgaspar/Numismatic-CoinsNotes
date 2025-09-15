@@ -29,11 +29,28 @@ namespace Numismatic_CoinsNotes.Pages
             }
             else
             {
-                // Caminho da imagem padrão
-                string defaultImagePath = Server.MapPath("../Assets/images/userDefaultImage.png");
+                byte[] imgBinaryData;
 
-                // Lê o conteúdo da imagem default
-                byte[] imgBinaryData = File.ReadAllBytes(defaultImagePath);
+                if (FileUpload1.HasFile)
+                {
+                    // Aponta para o ficheiro selecionado
+                    Stream imgStream = FileUpload1.PostedFile.InputStream;
+
+                    // Cria array de bytes com o tamanho do stream
+                    imgBinaryData = new byte[imgStream.Length];
+
+                    // Lê o conteúdo do stream para o array
+                    imgStream.Read(imgBinaryData, 0, Convert.ToInt32(imgStream.Length));
+                }
+                else
+                {
+                    // Caminho da imagem padrão
+                    string defaultImagePath = Server.MapPath("../Assets/images/userDefaultImage.png");
+
+                    // Lê o conteúdo da imagem default
+                    imgBinaryData = File.ReadAllBytes(defaultImagePath);
+                }
+                
 
                 // Criar a conexão - Abrir a connectionString
                 SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);

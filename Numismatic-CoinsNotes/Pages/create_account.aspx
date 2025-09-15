@@ -33,6 +33,12 @@
                         <asp:TextBox ID="tb_password" runat="server" placeholder="Password..." TextMode="Password"></asp:TextBox>
                     </fieldset>
                  </div>
+                <div class="">
+                    <fieldset>
+                        <label for="image">Image  </label>
+                        <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" />
+                    </fieldset>
+                </div>
                  <div class="">
                      <fieldset>
                          <asp:Button ID="btn_createAccount" class="orange-button" runat="server" Text="Create Account" OnClick="btn_createAccount_Click" />

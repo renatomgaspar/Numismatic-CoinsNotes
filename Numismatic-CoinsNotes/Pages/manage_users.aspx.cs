@@ -71,15 +71,6 @@ namespace Numismatic_CoinsNotes.Pages
                 u.Active = (bool)dr["active"];
                 u.Type = dr["type"].ToString();
 
-                if (dr["ctType"].ToString() != "" && (byte[])dr["image"] != null)
-                {
-                    u.Image = "data:" + dr["ctType"].ToString() + ";base64," + Convert.ToBase64String((byte[])dr["image"]);
-                }
-                else
-                {
-                    u.Image = "../Assets/images/noimage.png";
-                }
-
                 users_list_class.Add(u);
             }
 

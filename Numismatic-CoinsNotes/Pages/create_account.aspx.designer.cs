@@ -51,6 +51,15 @@ namespace Numismatic_CoinsNotes.Pages
         protected global::System.Web.UI.WebControls.TextBox tb_password;
 
         /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// <summary>
         /// btn_createAccount control.
         /// </summary>
         /// <remarks>
