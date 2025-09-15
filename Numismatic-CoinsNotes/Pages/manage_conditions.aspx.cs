@@ -61,7 +61,7 @@ namespace Numismatic_CoinsNotes.Pages
 
             // Usar repeater e codeblocks
             SqlDataReader dr = myCommand.ExecuteReader();
-            List<Condition> list_cashtype = new List<Condition>();
+            List<Condition> list_conditions = new List<Condition>();
 
             while (dr.Read())
             {
@@ -70,13 +70,13 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Id = (int)dr["id"];
                 c.ConditionName = dr["condition"].ToString();
 
-                list_cashtype.Add(c);
+                list_conditions.Add(c);
             }
 
             myCon.Close();
 
             // Colocar os dados no repeater
-            Repeater1.DataSource = list_cashtype;
+            Repeater1.DataSource = list_conditions;
             Repeater1.DataBind();
         }
     }

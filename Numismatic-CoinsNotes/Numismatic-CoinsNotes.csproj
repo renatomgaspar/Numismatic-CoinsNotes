@@ -102,10 +102,12 @@
     <Content Include="Pages\manage_conditions.aspx" />
     <Content Include="Pages\manage_numismatics.aspx" />
     <Content Include="Pages\manage_users.aspx" />
+    <Content Include="Pages\manage_usertypes.aspx" />
     <Content Include="Pages\new_cashtype.aspx" />
     <Content Include="Pages\new_condition.aspx" />
     <Content Include="Pages\new_numismatic.aspx" />
     <Content Include="Pages\new_user.aspx" />
+    <Content Include="Pages\new_usertype.aspx" />
     <Content Include="Pages\numismatics_list.aspx" />
     <Content Include="Pages\recovery_password_action.aspx" />
     <Content Include="Pages\change_password.aspx" />
@@ -118,6 +120,7 @@
     <Content Include="Pages\update_condition.aspx" />
     <Content Include="Pages\update_numismatic.aspx" />
     <Content Include="Pages\update_user.aspx" />
+    <Content Include="Pages\update_usertype.aspx" />
     <Content Include="Pages\your_account.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -187,6 +190,12 @@
     <Compile Include="Pages\manage_users.aspx.designer.cs">
       <DependentUpon>manage_users.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\manage_usertypes.aspx.cs">
+      <DependentUpon>manage_usertypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\manage_usertypes.aspx.designer.cs">
+      <DependentUpon>manage_usertypes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\new_cashtype.aspx.cs">
       <DependentUpon>new_cashtype.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,6 +223,13 @@
     </Compile>
     <Compile Include="Pages\new_user.aspx.designer.cs">
       <DependentUpon>new_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\new_usertype.aspx.cs">
+      <DependentUpon>new_usertype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\new_usertype.aspx.designer.cs">
+      <DependentUpon>new_usertype.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\numismatics_list.aspx.cs">
       <DependentUpon>numismatics_list.aspx</DependentUpon>
@@ -298,6 +314,13 @@
     </Compile>
     <Compile Include="Pages\update_user.aspx.designer.cs">
       <DependentUpon>update_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\update_usertype.aspx.cs">
+      <DependentUpon>update_usertype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\update_usertype.aspx.designer.cs">
+      <DependentUpon>update_usertype.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\your_account.aspx.cs">
       <DependentUpon>your_account.aspx</DependentUpon>

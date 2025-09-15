@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/base_template.Master" AutoEventWireup="true" CodeBehind="manage_cashtype.aspx.cs" Inherits="Numismatic_CoinsNotes.Pages.manage_cash_type" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/base_template.Master" AutoEventWireup="true" CodeBehind="manage_usertypes.aspx.cs" Inherits="Numismatic_CoinsNotes.Pages.manage_usertypes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -6,14 +6,14 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h3>Manage Cash Type</h3>
+              <h3>Manage Users Type</h3>
             </div>
           </div>
         </div>
       </div>
     <div class="mt-2" style="justify-items: center">
         <div class="main-button mt-2 mb-2">
-            <a href="new_cashtype.aspx">New</a>
+            <a href="new_usertype.aspx">New</a>
         </div>
     </div>
     <div class="properties section">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <br />
-            
+        
                 </ItemTemplate>
                 <FooterTemplate></FooterTemplate>
             </asp:Repeater>

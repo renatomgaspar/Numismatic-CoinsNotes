@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Numismatic_CoinsNotes.Pages
 {
-    public partial class update_condition : System.Web.UI.Page
+    public partial class update_usertype : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace Numismatic_CoinsNotes.Pages
                 Response.Redirect("login.aspx");
             }
 
-            if (Session["conditionToUpdate"] != null)
+            if (Session["usertypeToUpdate"] != null)
             {
                 if (!IsPostBack)
                 {
@@ -31,9 +31,9 @@ namespace Numismatic_CoinsNotes.Pages
 
                     myCommand.Connection = myCon;
                     myCommand.CommandType = CommandType.StoredProcedure; // Utilizar uma stored procedure
-                    myCommand.CommandText = "get_condition_byid"; // Noma da stored procedure
+                    myCommand.CommandText = "get_userype_byid"; // Noma da stored procedure
 
-                    myCommand.Parameters.AddWithValue("@id", Session["conditionToUpdate"]);
+                    myCommand.Parameters.AddWithValue("@id", Session["usertypeToUpdate"]);
 
                     // Abrir a conexão
                     myCon.Open();
@@ -43,7 +43,7 @@ namespace Numismatic_CoinsNotes.Pages
 
                     if (dr.Read())
                     {
-                        tb_condition.Text = dr["condition"].ToString();
+                        tb_type.Text = dr["type"].ToString();
                     }
 
                     myCon.Close();
@@ -51,23 +51,23 @@ namespace Numismatic_CoinsNotes.Pages
             }
             else
             {
-                Response.Redirect("manage_conditions.aspx");
+                Response.Redirect("manage_usertypes.aspx");
             }
         }
 
         protected void btn_gotoCreate_Click(object sender, EventArgs e)
         {
-            Response.Redirect("manage_conditions.aspx");
+            Response.Redirect("manage_usertypes.aspx");
         }
 
-        protected void btn_update_condition_Click(object sender, EventArgs e)
+        protected void btn_update_cashtype_Click(object sender, EventArgs e)
         {
             string query = @"
                 DECLARE @return INT;
 
-                IF NOT EXISTS (SELECT 1 FROM Conditions WHERE [condition] = @condition)
+                IF NOT EXISTS (SELECT 1 FROM Usertypes WHERE [type] = @type)
                 BEGIN
-                    UPDATE Conditions SET [condition] = @condition WHERE id = @id;
+                    UPDATE Usertypes SET [type] = @type WHERE id = @id;
                     SET @return = 1;
                 END
                 ELSE
@@ -83,8 +83,8 @@ namespace Numismatic_CoinsNotes.Pages
             SqlCommand myCommand = new SqlCommand(query, myCon);
 
             // Adicionar parâmetros
-            myCommand.Parameters.AddWithValue("@id", Convert.ToInt32(Session["conditionToUpdate"]));
-            myCommand.Parameters.AddWithValue("@condition", tb_condition.Text);
+            myCommand.Parameters.AddWithValue("@id", Convert.ToInt32(Session["usertypeToUpdate"]));
+            myCommand.Parameters.AddWithValue("@type", tb_type.Text);
 
             myCon.Open();
 
@@ -94,11 +94,11 @@ namespace Numismatic_CoinsNotes.Pages
 
             if (response == 1)
             {
-                lbl_infos.Text = "Condition updated successfully!";
+                lbl_infos.Text = "User type updated successfully!";
             }
             else
             {
-                lbl_infos.Text = "This condition already exists!";
+                lbl_infos.Text = "This type already exists!";
             }
         }
     }

@@ -62,7 +62,21 @@ namespace Numismatic_CoinsNotes.Pages
 
         protected void btn_update_cashtype_Click(object sender, EventArgs e)
         {
-            string query = "UPDATE Cashtype SET [type] = @type WHERE id = @id";
+            string query = @"
+                DECLARE @return INT;
+
+                IF NOT EXISTS (SELECT 1 FROM Cashtype WHERE [type] = @type)
+                BEGIN
+                    UPDATE Cashtype SET [type] = @type WHERE id = @id;
+                    SET @return = 1;
+                END
+                ELSE
+                BEGIN
+                    SET @return = 0;
+                END
+
+                SELECT @return;
+                ";
 
             // Criar conexão
             SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
@@ -73,12 +87,19 @@ namespace Numismatic_CoinsNotes.Pages
             myCommand.Parameters.AddWithValue("@type", tb_type.Text);
             
             myCon.Open();
-            
-            myCommand.ExecuteNonQuery();
+
+            int response = Convert.ToInt32(myCommand.ExecuteScalar());
 
             myCon.Close();
 
-            lbl_infos.Text = "Cash type updated successfully!";
+            if (response == 1)
+            {
+                lbl_infos.Text = "Cash type updated successfully!";
+            }
+            else
+            {
+                lbl_infos.Text = "This type already exists!";
+            }
         }
     }
 }

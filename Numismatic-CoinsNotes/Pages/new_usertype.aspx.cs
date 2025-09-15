@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Numismatic_CoinsNotes.Pages
 {
-    public partial class new_cashtype : System.Web.UI.Page
+    public partial class new_usertype : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace Numismatic_CoinsNotes.Pages
         {
             if (tb_type.Text == "")
             {
-                lbl_infos.Text = "You must write the type of the Numismatic Type!";
+                lbl_infos.Text = "You must write the type of the User Type!";
             }
             else
             {
@@ -35,7 +35,7 @@ namespace Numismatic_CoinsNotes.Pages
 
                 myCommand.Connection = myCon;
                 myCommand.CommandType = CommandType.StoredProcedure;
-                myCommand.CommandText = "create_cashtype";
+                myCommand.CommandText = "create_usertype";
 
                 // O que queremos inserir/enviar
                 myCommand.Parameters.AddWithValue("@type", tb_type.Text);
@@ -56,18 +56,18 @@ namespace Numismatic_CoinsNotes.Pages
                 // 1 -> User | 4 -> Admin
                 if (response == 1)
                 {
-                    lbl_infos.Text = "Cash Type Created!";
+                    lbl_infos.Text = "User Type Created!";
                 }
                 else
                 {
-                    lbl_infos.Text = "There is already a Cash Type with that Name!";
+                    lbl_infos.Text = "There is already a User Type with that Name!";
                 }
             }
         }
 
         protected void btn_gotoBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("manage_cashtype.aspx");
+            Response.Redirect("manage_usertypes.aspx");
         }
     }
 }

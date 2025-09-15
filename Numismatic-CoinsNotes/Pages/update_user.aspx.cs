@@ -80,7 +80,7 @@ namespace Numismatic_CoinsNotes.Pages
             {
                 if (!FileUpload1.PostedFile.ContentType.ToLower().StartsWith("image/"))
                 {
-                    lbl_infos.Text = "Cash updated but couldnt update the image! You must upload an Image!";
+                    lbl_infos.Text = "User updated but couldnt update the image! You must upload an Image!";
                 }
                 else
                 {
@@ -101,14 +101,42 @@ namespace Numismatic_CoinsNotes.Pages
                         throw;
                     }
 
-                    lbl_infos.Text = "Cash and Image updated successfully!";
+                    lbl_infos.Text = "User and Image updated successfully!";
                 }
 
-                query = @"UPDATE Users SET email = @email, verified = @verified, active = @active, typeId = @typeId, ctType = @ctType, image = @image WHERE id = @id";
+                query = @"
+                    DECLARE @return INT;
+
+                    IF NOT EXISTS (SELECT 1 FROM Users WHERE email = @email)
+                    BEGIN
+                        UPDATE Users SET email = @email, verified = @verified, active = @active, typeId = @typeId, ctType = @ctType, image = @image WHERE id = @id
+                        SET @return = 1;
+                    END
+                    ELSE
+                    BEGIN
+                        UPDATE Users SET verified = @verified, active = @active, typeId = @typeId, ctType = @ctType, image = @image WHERE id = @id
+                        SET @return = 0;
+                    END
+
+                    SELECT @return;";
             }
             else
             {
-                query = @"UPDATE Users SET email = @email, verified = @verified, active = @active, typeId = @typeId WHERE id = @id";
+                query = @"
+                    DECLARE @return INT;
+
+                    IF NOT EXISTS (SELECT 1 FROM Users WHERE email = @email)
+                    BEGIN
+                        UPDATE Users SET email = @email, verified = @verified, active = @active, typeId = @typeId WHERE id = @id
+                        SET @return = 1;
+                    END
+                    ELSE
+                    BEGIN
+                        UPDATE Users SET verified = @verified, active = @active, typeId = @typeId WHERE id = @id
+                        SET @return = 0;
+                    END
+
+                    SELECT @return;";
             }
 
             // Criar conexão
@@ -129,11 +157,18 @@ namespace Numismatic_CoinsNotes.Pages
 
             myCon.Open();
 
-            myCommand.ExecuteNonQuery();
+            int response = Convert.ToInt32(myCommand.ExecuteScalar());
 
             myCon.Close();
 
-            lbl_infos.Text = "User Updated Successfully";
+            if (response == 1)
+            {
+                lbl_infos.Text = "User Updated Successfully";
+            }
+            else
+            {
+                lbl_infos.Text = "User Update but couldnt update email because already exists!";
+            }
         }
     }
 }
