@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/base_template.Master" AutoEventWireup="true" CodeBehind="manage_cashtype.aspx.cs" Inherits="Numismatic_CoinsNotes.Pages.manage_cash_type" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/base_template.Master" AutoEventWireup="true" CodeBehind="manage_conditions.aspx.cs" Inherits="Numismatic_CoinsNotes.Pages.manage_conditions" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -6,14 +6,14 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h3>Manage Cash Type</h3>
+              <h3>Manage Conditions</h3>
             </div>
           </div>
         </div>
       </div>
     <div class="mt-2" style="justify-items: center">
         <div class="main-button mt-2 mb-2">
-            <a href="new_cashtype.aspx">New</a>
+            <a href="new_condition.aspx">New</a>
         </div>
     </div>
     <div class="properties section">
@@ -25,7 +25,7 @@
                         <div class="item">
                             <h4>Id - <%#Eval("id") %></h4>
                             <ul>
-                                <li><b>Type:</b> <%#Eval("type") %></li>
+                                <li><b>Type:</b> <%#Eval("ConditionName") %></li>
                             </ul>
                             <div>
                                 <asp:LinkButton ID="btnUpdate" runat="server"
@@ -33,16 +33,11 @@
                                     CommandName="UpdateItem"
                                     CommandArgument='<%# Eval("id") %>'
                                     CssClass="btn btn-warning mt-2" />
-                                <asp:LinkButton ID="btnDelete" runat="server" Text="Delete"
-                                    CommandName="DeleteItem"
-                                    CommandArgument='<%# Eval("id") %>'
-                                    CssClass="btn btn-danger mt-2" 
-                                    OnClientClick="return confirm('Are you sure?');" />
                             </div>
                         </div>
                     </div>
                     <br />
-            
+        
                 </ItemTemplate>
                 <FooterTemplate></FooterTemplate>
             </asp:Repeater>

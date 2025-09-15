@@ -99,9 +99,11 @@
     <Content Include="Pages\admin.aspx" />
     <Content Include="Pages\collection_list.aspx" />
     <Content Include="Pages\manage_cashtype.aspx" />
+    <Content Include="Pages\manage_conditions.aspx" />
     <Content Include="Pages\manage_numismatics.aspx" />
     <Content Include="Pages\manage_users.aspx" />
     <Content Include="Pages\new_cashtype.aspx" />
+    <Content Include="Pages\new_condition.aspx" />
     <Content Include="Pages\new_numismatic.aspx" />
     <Content Include="Pages\new_user.aspx" />
     <Content Include="Pages\numismatics_list.aspx" />
@@ -113,6 +115,7 @@
     <Content Include="Pages\password_recovery.aspx" />
     <Content Include="Pages\statistics.aspx" />
     <Content Include="Pages\update_cashtype.aspx" />
+    <Content Include="Pages\update_condition.aspx" />
     <Content Include="Pages\update_numismatic.aspx" />
     <Content Include="Pages\update_user.aspx" />
     <Content Include="Pages\your_account.aspx" />
@@ -163,6 +166,13 @@
     <Compile Include="Pages\manage_cashtype.aspx.designer.cs">
       <DependentUpon>manage_cashtype.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\manage_conditions.aspx.cs">
+      <DependentUpon>manage_conditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\manage_conditions.aspx.designer.cs">
+      <DependentUpon>manage_conditions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\manage_numismatics.aspx.cs">
       <DependentUpon>manage_numismatics.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +193,13 @@
     </Compile>
     <Compile Include="Pages\new_cashtype.aspx.designer.cs">
       <DependentUpon>new_cashtype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\new_condition.aspx.cs">
+      <DependentUpon>new_condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\new_condition.aspx.designer.cs">
+      <DependentUpon>new_condition.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\new_numismatic.aspx.cs">
       <DependentUpon>new_numismatic.aspx</DependentUpon>
@@ -260,6 +277,13 @@
     </Compile>
     <Compile Include="Pages\update_cashtype.aspx.designer.cs">
       <DependentUpon>update_cashtype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\update_condition.aspx.cs">
+      <DependentUpon>update_condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\update_condition.aspx.designer.cs">
+      <DependentUpon>update_condition.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\update_numismatic.aspx.cs">
       <DependentUpon>update_numismatic.aspx</DependentUpon>

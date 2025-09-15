@@ -44,10 +44,10 @@
                 <div class="item">
                   <img src="../Assets/images/homeWpp.png" alt="" height="192" width="200">
       
-                  <h4><a href="manage_numismatics.aspx">Manage Conditions</a></h4>
+                  <h4><a href="manage_conditions.aspx">Manage Conditions</a></h4>
                     <hr />
                   <div class="main-button">
-                    <a href="manage_numismatics.aspx">Go to Page</a>
+                    <a href="manage_conditions.aspx">Go to Page</a>
                   </div>
                 </div>
               </div>
