@@ -58,7 +58,10 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Imprintvalue = Convert.ToSingle(dr["imprintValue"]);
                 c.Currentvalue = Convert.ToSingle(dr["currentValue"]);
 
-                numismatics_list_class.Add(c);
+                if (!numismatics_list_class.Any(x => x.Title == c.Title))
+                {
+                    numismatics_list_class.Add(c);
+                }
 
                 if (numismatics_list_class.Count >= 4)
                 {
