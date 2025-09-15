@@ -14,6 +14,9 @@
 
 <div class="properties section">
     <div class="row">
+        <div>
+            <asp:Button ID="btn_export_collection" runat="server" Text="Export Collection" class="orange-button mb-3" OnClick="btn_export_collection_Click" />
+        </div>
         <div class="filters" style="margin-left: 25px">
             Price:  
             <asp:DropDownList ID="ddl_price" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_price_SelectedIndexChanged">

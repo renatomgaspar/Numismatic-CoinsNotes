@@ -1,8 +1,12 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -58,7 +62,6 @@ namespace Numismatic_CoinsNotes.Pages
             if (e.CommandName == "DeleteItem")
             {
                 int id = Convert.ToInt32(e.CommandArgument.ToString());
-                Response.Write(id);
 
                 // Criar a conexão - Abrir a connectionString
                 SqlConnection myCon = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
@@ -190,6 +193,98 @@ namespace Numismatic_CoinsNotes.Pages
 
             Repeater1.DataSource = your_collection_list;
             Repeater1.DataBind();
+        }
+
+        protected void btn_export_collection_Click(object sender, EventArgs e)
+        {
+            string templatePath = Server.MapPath("~/Assets/PDFS/Numismatics_PDF_TemplateForm.pdf");
+            string fileName = $"my_collection_{DateTime.Now:yyyyMMddHHmmss}.pdf";
+
+            Response.Clear();
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("Content-Disposition", $"attachment; filename={fileName}");
+
+            Document doc = null;
+            PdfCopy copy = null;
+
+            try
+            {
+                doc = new Document();
+                copy = new PdfCopy(doc, Response.OutputStream);
+                doc.Open();
+
+                foreach (var item in your_collection_list)
+                {
+                    MemoryStream ms = null;
+                    PdfReader reader = null;
+                    PdfStamper stamper = null;
+                    PdfReader filledPage = null;
+
+                    try
+                    {
+                        ms = new MemoryStream();
+                        reader = new PdfReader(templatePath);
+                        stamper = new PdfStamper(reader, ms);
+                        AcroFields fields = stamper.AcroFields;
+
+                        // Preencher campos
+                        fields.SetField("tb_title", item.Title);
+                        fields.SetField("tb_description", item.Description);
+                        fields.SetField("tb_type", item.Type);
+                        fields.SetField("tb_condition", item.Condition);
+                        fields.SetField("tb_imprint", item.Imprintvalue.ToString("N2"));
+                        fields.SetField("tb_current", item.Currentvalue.ToString("N2"));
+
+                        // Inserir imagem
+                        if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            try
+                            {
+                                string base64 = item.Image.Split(',')[1];
+                                byte[] bytes = Convert.FromBase64String(base64);
+                                if (bytes.Length > 0)
+                                {
+                                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(bytes);
+                                    var posList = fields.GetFieldPositions("ImageUpload_af_image");
+                                    if (posList != null && posList.Count > 0)
+                                    {
+                                        var pos = posList[0];
+                                        img.ScaleToFit(pos.position.Width, pos.position.Height);
+                                        img.SetAbsolutePosition(pos.position.Left, pos.position.Bottom);
+                                        stamper.GetOverContent(pos.page).AddImage(img);
+                                    }
+                                }
+                            }
+                            catch
+                            {
+                                // Log opcional de erro na imagem
+                            }
+                        }
+
+                        stamper.FormFlattening = true;
+                        stamper.Close();
+
+                        filledPage = new PdfReader(ms.ToArray());
+                        copy.AddPage(copy.GetImportedPage(filledPage, 1));
+                    }
+                    finally
+                    {
+                        // Fechar recursos em ordem inversa de criação
+                        filledPage.Close();
+                        stamper.Close();
+                        reader.Close();
+                        ms.Close();
+                    }
+                }
+            }
+            finally
+            {
+                // Fechar recursos principais
+                doc.Close();
+                copy.Close();
+            }
+
+            Response.End();
         }
     }
 }
