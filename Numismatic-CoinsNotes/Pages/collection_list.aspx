@@ -14,8 +14,13 @@
 
 <div class="properties section">
     <div class="row">
-        <div>
+        <div style="margin-left: 25px;">
             <asp:Button ID="btn_export_collection" runat="server" Text="Export Collection" class="orange-button mb-3" OnClick="btn_export_collection_Click" />
+        </div>
+        <div style="margin-left: 25px;margin-bottom: 10px;">
+            <fieldset>
+                <asp:TextBox ID="tb_search" runat="server" AutoPostBack="true" OnTextChanged="tb_search_TextChanged" placeholder="Numismatic Name..." Width="97%"></asp:TextBox>
+            </fieldset>
         </div>
         <div class="filters" style="margin-left: 25px">
             Price:  

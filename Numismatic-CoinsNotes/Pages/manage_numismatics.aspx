@@ -14,7 +14,11 @@
 
     <div class="properties section">
         <div class="row">
-            
+            <div style="margin-left: 25px;margin-bottom: 10px;">
+                <fieldset>
+                    <asp:TextBox ID="tb_search" runat="server" AutoPostBack="true" OnTextChanged="tb_search_TextChanged" placeholder="Numismatic Name..." Width="97%"></asp:TextBox>
+                </fieldset>
+            </div>
             <div class="filters" style="margin-left: 25px">
                 <div class="mt-3" style="justify-items: center">
                     <asp:Button ID="btn_new_numismatic" runat="server" Text="New Numismatic" class="orange-button" OnClick="btn_new_numismatic_Click" />

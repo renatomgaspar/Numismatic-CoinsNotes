@@ -39,7 +39,7 @@ namespace Numismatic_CoinsNotes
                 }
                 else
                 {
-                    string defaultImagePath = context.Server.MapPath("~/Assets/images/eleminated.png");
+                    string defaultImagePath = context.Server.MapPath("~/Assets/images/eliminated.jpg");
                     byte[] bytes = System.IO.File.ReadAllBytes(defaultImagePath);
 
                     context.Response.ContentType = "image/png";

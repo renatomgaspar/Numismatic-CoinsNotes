@@ -127,6 +127,11 @@ namespace Numismatic_CoinsNotes.Pages
             ApplyFilters();
         }
 
+        protected void tb_search_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilters();
+        }
+
         protected void ApplyFilters()
         {
             var numismatics_list_class_filter = numismatics_list_class;
@@ -145,6 +150,11 @@ namespace Numismatic_CoinsNotes.Pages
                 numismatics_list_class_filter = numismatics_list_class_filter.OrderByDescending(c => c.Currentvalue).ToList();
             }
 
+            if (!string.IsNullOrEmpty(tb_search.Text.Trim()))
+            {
+                numismatics_list_class_filter = numismatics_list_class_filter.Where(c => c.Title.ToLower().Contains(tb_search.Text.Trim().ToLower())).ToList();
+            }
+
             Repeater1.DataSource = numismatics_list_class_filter.OrderByDescending(n => n.Active);
             Repeater1.DataBind();
         }
@@ -153,6 +163,7 @@ namespace Numismatic_CoinsNotes.Pages
         {
             ddl_cashtype.SelectedIndex = 0;
             ddl_price.SelectedIndex = 0;
+            tb_search.Text = "";
 
             Repeater1.DataSource = numismatics_list_class.OrderByDescending(n => n.Active);
             Repeater1.DataBind();
