@@ -13,7 +13,7 @@ namespace Numismatic_CoinsNotes.Pages
         {
             if (Session["userType"] == null || (int)Session["userType"] != 2)
             {
-                Response.Redirect("home.aspx");
+                Response.Redirect("login.aspx");
             }
         }
     }

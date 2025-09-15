@@ -43,9 +43,10 @@ namespace Numismatic_CoinsNotes.Pages
                 Response.Redirect("login.aspx");
             }
 
+            ShowNumismatics();
+
             if (!IsPostBack)
             {
-                ShowNumismatics();
                 Repeater1.DataSource = numismatics_list_class.OrderByDescending(n => n.Active);
                 Repeater1.DataBind();
             }

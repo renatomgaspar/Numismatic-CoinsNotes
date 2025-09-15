@@ -111,6 +111,7 @@
     <Content Include="Pages\home.aspx" />
     <Content Include="Pages\login.aspx" />
     <Content Include="Pages\password_recovery.aspx" />
+    <Content Include="Pages\statistics.aspx" />
     <Content Include="Pages\update_cashtype.aspx" />
     <Content Include="Pages\update_numismatic.aspx" />
     <Content Include="Pages\update_user.aspx" />
@@ -242,6 +243,13 @@
     </Compile>
     <Compile Include="Pages\password_recovery.aspx.designer.cs">
       <DependentUpon>password_recovery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\statistics.aspx.cs">
+      <DependentUpon>statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\statistics.aspx.designer.cs">
+      <DependentUpon>statistics.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\update_cashtype.aspx.cs">
       <DependentUpon>update_cashtype.aspx</DependentUpon>
