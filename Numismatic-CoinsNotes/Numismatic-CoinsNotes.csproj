@@ -119,6 +119,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ImageHandler.ashx.cs">
+      <DependentUpon>ImageHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\base_template.Master.cs">
       <DependentUpon>base_template.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -294,6 +297,7 @@
     <Content Include="Assets\jquery\jquery.min.map" />
     <Content Include="Assets\jquery\jquery.slim.min.map" />
     <Content Include="Assets\PDFS\Numismatics_PDF_TemplateForm.pdf" />
+    <Content Include="Helpers\ImageHandler.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

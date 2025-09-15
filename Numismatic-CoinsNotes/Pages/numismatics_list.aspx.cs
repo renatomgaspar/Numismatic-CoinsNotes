@@ -59,16 +59,7 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Imprintvalue = Convert.ToSingle(dr["imprintValue"]);
                 c.Currentvalue = Convert.ToSingle(dr["currentValue"]);
 
-                if (dr["ctImage"].ToString() != "" && (byte[])dr["image"] != null)
-                {
-                    c.Image = "data:" + dr["ctImage"].ToString() + ";base64," + Convert.ToBase64String((byte[])dr["image"]);
-                }
-                else
-                {
-                    c.Image = "../Assets/images/noimage.png";
-                }
-
-                    numismatics_list_class.Add(c);
+                numismatics_list_class.Add(c);
             }
 
             myCon.Close();

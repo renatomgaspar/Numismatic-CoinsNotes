@@ -46,7 +46,7 @@
                                         <div class="col-lg-6 col-md-8">
                                             <div class="item">
                                                 <div style="text-align: center">
-                                                    <asp:Image ID="Image1" runat="server" CssClass="img-fluid" ImageUrl='<%# Bind("Image") %>' Width="230" Height="200"/>
+                                                    <asp:Image ID="Image1" runat="server" CssClass="img-fluid" ImageUrl='<%# Eval("Image") %>' Width="230" Height="200"/>
                                                 </div>
                                                 <span class="category"><%# Eval("Type") %></span>
                                                 <span class="category"><%# Eval("Condition") %></span>

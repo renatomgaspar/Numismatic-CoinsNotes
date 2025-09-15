@@ -20,6 +20,9 @@ namespace Numismatic_CoinsNotes.Pages
         {
             public int Id { get; set; }
 
+            public int CashId { get; set; }
+
+
             public string Title { get; set; }
 
             public string Description { get; set; }
@@ -134,6 +137,7 @@ namespace Numismatic_CoinsNotes.Pages
             {
                 Favourite c = new Favourite();
                 c.Id = (int)dr["favouriteId"];
+                c.CashId = (int)dr["id"];
                 c.Title = dr["title"].ToString();
                 c.Description = dr["description"].ToString();
                 c.Type = dr["type"].ToString();
@@ -141,22 +145,6 @@ namespace Numismatic_CoinsNotes.Pages
                 c.Imprintvalue = Convert.ToSingle(dr["imprintValue"]);
                 c.Currentvalue = Convert.ToSingle(dr["currentValue"]);
                 c.Active = (bool)dr["active"];
-
-                if (c.Active == false)
-                {
-                    c.Image = "../Assets/images/eliminated.jpg";
-                }
-                else
-                {
-                    if (dr["ctImage"].ToString() != "" && (byte[])dr["image"] != null)
-                    {
-                        c.Image = "data:" + dr["ctImage"].ToString() + ";base64," + Convert.ToBase64String((byte[])dr["image"]);
-                    }
-                    else
-                    {
-                        c.Image = "../Assets/images/noimage.png";
-                    }
-                }
 
                 your_collection_list.Add(c);
             }
